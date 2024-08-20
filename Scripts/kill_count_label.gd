@@ -7,4 +7,4 @@ func _ready():
 	text = "Kills: 0\nXP: 0\nLvl: 0"
 
 func _on_stat_update():
-	text = "Kills: " + str(StatTracker.enemies_killed) + "\nXP: " + str(StatTracker.xp) + "\nLvl: " + str(StatTracker.lvl)
+	text = "Kills: " + str(StatTracker.enemies_killed) + "\nXP: " + str(StatTracker.xp_curr) + "/" + str(StatTracker.xp_next) + "\nLvl: " + str(StatTracker.lvl)

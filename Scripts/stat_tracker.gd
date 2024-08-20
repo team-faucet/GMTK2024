@@ -5,15 +5,25 @@ signal gained_xp
 
 var enemies_killed : int = 0
 
-var xp : int = 0
 var lvl : int = 1
+
+var total_xp : int = 0
+var xp_curr : int = 0
+var xp_next : int = get_next_xp()
 
 func kill_enemy():
 	enemies_killed += 1
 	enemy_killed.emit()
 
 func gain_xp(xp_in : int) -> void:
-	xp += xp_in
-	if (lvl >= 0):
-		lvl = floor(sqrt(xp))
+	xp_curr += xp_in
+	total_xp += xp_in
+	if (xp_curr > xp_next):
+		lvl += 1
+		xp_curr = 0
+		xp_next = get_next_xp()
 	gained_xp.emit()
+
+
+func get_next_xp() -> int:
+	return 10 * sqrt(lvl)
