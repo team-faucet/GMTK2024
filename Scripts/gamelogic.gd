@@ -5,7 +5,7 @@ extends Node
 @export_group("Enemy Spawning")
 @export var time_to_spawn : float = 1
 @export var enemy_scenes : Array[PackedScene]
-@export var spawn_distance_to_screen : int = 10
+@export var spawn_distance_to_screen : int = 40
 
 
 var timer:Timer
@@ -32,7 +32,8 @@ func _set_player_field(enemy : Enemy) -> void:
 
 func _get_random_position() -> Vector2:
 	var cam_pos : Vector2 = get_viewport().get_camera_2d().global_position
-	var min_distance : float = 0.5 * get_viewport().size.length() + spawn_distance_to_screen
+	var fov_size : Vector2 = Vector2(get_viewport().size) / get_viewport().get_camera_2d().zoom
+	var min_distance : float = 0.5 * fov_size.length() + spawn_distance_to_screen
 	var randangle = randf() * 2 * PI
 	var spawn_pos := min_distance * Vector2.from_angle(randangle) + cam_pos
 	return spawn_pos
