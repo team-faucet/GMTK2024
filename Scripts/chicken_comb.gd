@@ -2,6 +2,7 @@ class_name ChickenComb extends Node2D
 
 
 func _ready():
+	var lifetime = $ProjectileComponent.lifetime
 	var tween : Tween = get_tree().create_tween().bind_node(get_node("."))
-	tween.tween_property(get_node("."), "scale", Vector2.ZERO, 2)
+	tween.tween_property(get_node("."), "scale", 0.2*scale, lifetime)
 	tween.tween_callback(queue_free)
