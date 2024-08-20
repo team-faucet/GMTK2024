@@ -7,7 +7,7 @@ automatically places bullets at its location, facing the direction in which the 
 @export var bulletscene : PackedScene
 @export var base_cooldown : float = 1
 @export var cooldown_variation : float = 0.5
-
+@export var is_shooting : bool = true
 
 @export_group("Projectile", "projectile")
 @export var projectile_is_active : bool = true
@@ -32,13 +32,14 @@ func _set_cooldown():
 	_cooldown_timer.wait_time = base_cooldown + (randf()-0.5)*cooldown_variation
 
 func _shoot():
-	var bullet : Node2D = bulletscene.instantiate()
-	bullet.position = global_position
-	bullet.rotation = global_rotation
-	_set_projectile_attributes(bullet)
-	_set_damage_attributes(bullet)
+	if is_shooting:
+		var bullet : Node2D = bulletscene.instantiate()
+		bullet.position = global_position
+		bullet.rotation = global_rotation
+		_set_projectile_attributes(bullet)
+		_set_damage_attributes(bullet)
+		get_tree().root.add_child(bullet)
 	
-	get_tree().root.add_child(bullet)
 	_set_cooldown()
 
 func _set_projectile_attributes(bullet : Node2D) -> void:
