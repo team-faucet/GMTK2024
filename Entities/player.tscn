@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpwxsgg7pjtyq"]
+[gd_scene load_steps=12 format=3 uid="uid://bpwxsgg7pjtyq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_06hp7"]
 [ext_resource type="Texture2D" uid="uid://dg4hnnnqpuxts" path="res://assets/animalsheads/chicken.png" id="2_3uapd"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://boeqr8qm5mlx3" path="res://Components/health_component.tscn" id="4_ongt8"]
 [ext_resource type="Shader" path="res://Shaders/distort3.gdshader" id="5_jw5v7"]
 [ext_resource type="PackedScene" uid="uid://b14hkqi4f0t36" path="res://Weapons/ability_slot.tscn" id="6_ngny2"]
+[ext_resource type="PackedScene" uid="uid://s0cjxdv351v6" path="res://Components/collecting_component.tscn" id="8_fbp1p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iqd5b"]
 shader = ExtResource("5_jw5v7")
@@ -20,6 +21,9 @@ shader_parameter/scale = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q36i1"]
 radius = 61.0082
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vmdh"]
+radius = 86.209
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_06hp7")
@@ -59,3 +63,8 @@ cooldown_time = 0.2
 [node name="AbilityMine" parent="." instance=ExtResource("6_ngny2")]
 ability_scene = ExtResource("2_d7lid")
 action_num = 2
+
+[node name="CollectingComponent" parent="." instance=ExtResource("8_fbp1p")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectingComponent"]
+shape = SubResource("CircleShape2D_6vmdh")
