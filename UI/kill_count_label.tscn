@@ -6,6 +6,8 @@
 [sub_resource type="LabelSettings" id="LabelSettings_2v3tk"]
 font = ExtResource("1_rn7p3")
 font_size = 40
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="KillCountLabel" type="Label"]
 texture_filter = 3
