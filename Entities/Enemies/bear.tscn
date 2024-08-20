@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://btq50rc85pr5g"]
+
+[ext_resource type="Script" path="res://Scripts/bear.gd" id="1_h46th"]
+[ext_resource type="Texture2D" uid="uid://ceudrhn3ugyur" path="res://assets/animalsheads/bear.png" id="2_empse"]
+[ext_resource type="PackedScene" uid="uid://bukm2rdeljhsu" path="res://Components/follow_player_component.tscn" id="3_47nvv"]
+[ext_resource type="PackedScene" uid="uid://b2x1vm36qfeyn" path="res://Components/damage_component.tscn" id="4_iyo2b"]
+[ext_resource type="PackedScene" uid="uid://ock0s4rxc6eq" path="res://Components/hitbox_component.tscn" id="5_geym5"]
+[ext_resource type="PackedScene" uid="uid://boeqr8qm5mlx3" path="res://Components/health_component.tscn" id="6_8o85x"]
+[ext_resource type="PackedScene" uid="uid://cppeu52scvqwg" path="res://Components/enemy_component.tscn" id="7_0hs5k"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_18wwp"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3v38"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tbsp0"]
+radius = 64.0
+
+[node name="Bear" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_18wwp")
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_h46th")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_empse")
+
+[node name="BlockBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_k3v38")
+
+[node name="FollowPlayerComponent" parent="." instance=ExtResource("3_47nvv")]
+follow_force = 300.0
+
+[node name="DamageComponent" parent="." instance=ExtResource("4_iyo2b")]
+collision_mask = 2
+damage = 5.0
+crit_chance = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageComponent"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_tbsp0")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_comp") instance=ExtResource("5_geym5")]
+collision_layer = 4
+health_comp = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_tbsp0")
+
+[node name="HealthComponent" parent="." instance=ExtResource("6_8o85x")]
+delete_on_death = true
+
+[node name="EnemyComponent" parent="." instance=ExtResource("7_0hs5k")]
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]

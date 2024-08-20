@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8wnxbwesovtu"]
+
+[ext_resource type="Texture2D" uid="uid://dxa2k1d4y563n" path="res://assets/chickencomb.png" id="1_6flsy"]
+[ext_resource type="Script" path="res://Scripts/chicken_comb.gd" id="1_gx7y8"]
+[ext_resource type="PackedScene" uid="uid://b2x1vm36qfeyn" path="res://Components/damage_component.tscn" id="2_3gcg7"]
+[ext_resource type="PackedScene" uid="uid://bwkw5vsymyrl0" path="res://Components/projectile_component.tscn" id="4_y3gc3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nhso"]
+size = Vector2(48, 64)
+
+[node name="ChickenComb" type="Node2D"]
+script = ExtResource("1_gx7y8")
+
+[node name="Chickencomb" type="Sprite2D" parent="."]
+texture = ExtResource("1_6flsy")
+offset = Vector2(0, -31.5)
+
+[node name="DamageComponent" parent="." instance=ExtResource("2_3gcg7")]
+collision_mask = 4
+damage = 15.0
+crit_chance = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageComponent"]
+position = Vector2(0, -31.5)
+shape = SubResource("RectangleShape2D_2nhso")
+
+[node name="ProjectileComponent" parent="." instance=ExtResource("4_y3gc3")]
+lifetime = 2.0

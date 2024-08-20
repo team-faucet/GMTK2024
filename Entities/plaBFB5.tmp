@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpwxsgg7pjtyq"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_06hp7"]
+[ext_resource type="Texture2D" uid="uid://dg4hnnnqpuxts" path="res://assets/animalsheads/chicken.png" id="2_3uapd"]
+[ext_resource type="PackedScene" uid="uid://ock0s4rxc6eq" path="res://Components/hitbox_component.tscn" id="3_yt7br"]
+[ext_resource type="PackedScene" uid="uid://boeqr8qm5mlx3" path="res://Components/health_component.tscn" id="4_ongt8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q36i1"]
+radius = 61.0082
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_06hp7")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, -8.5)
+texture = ExtResource("2_3uapd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_comp") instance=ExtResource("3_yt7br")]
+health_comp = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_q36i1")
+
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("damage_number_position") instance=ExtResource("4_ongt8")]
+damage_number_position = NodePath("DamageNumberPosition")
+
+[node name="DamageNumberPosition" type="Node2D" parent="HealthComponent"]
+position = Vector2(40, -40)
+
+[connection signal="damage_taken" from="HealthComponent" to="." method="_on_health_component_damage_taken"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]

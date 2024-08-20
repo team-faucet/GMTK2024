@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgxvnovy4lvo6"]
+
+[ext_resource type="PackedScene" uid="uid://bpwxsgg7pjtyq" path="res://Entities/player.tscn" id="1_yeh4v"]
+[ext_resource type="Script" path="res://gamelogic.gd" id="3_8xds2"]
+[ext_resource type="PackedScene" uid="uid://btq50rc85pr5g" path="res://Entities/Enemies/goat.tscn" id="4_iwx7t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x2uwc"]
+font_size = 20
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_yeh4v")]
+unique_name_in_owner = true
+
+[node name="Gamelogic" type="Node" parent="."]
+script = ExtResource("3_8xds2")
+enemy_scenes = Array[PackedScene]([ExtResource("4_iwx7t")])
+time_to_spawn = 0.435
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.4698
+offset_top = -134.071
+offset_right = 15.5302
+offset_bottom = -111.071
+text = "TestText"
+label_settings = SubResource("LabelSettings_x2uwc")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

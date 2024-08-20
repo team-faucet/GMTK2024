@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxmv5tq3abdm2"]
+
+[ext_resource type="Script" path="res://Scripts/narwhal.gd" id="1_g258r"]
+[ext_resource type="Texture2D" uid="uid://dghdvre1kfmnx" path="res://assets/animalsheads/narwhal.png" id="2_fp2g8"]
+[ext_resource type="PackedScene" uid="uid://dm8kjvbogy4dn" path="res://Weapons/narwhalbullet.tscn" id="2_vahy0"]
+[ext_resource type="PackedScene" uid="uid://cetkclwtedonf" path="res://Components/auto_shoot_component.tscn" id="4_o0ebm"]
+[ext_resource type="PackedScene" uid="uid://bukm2rdeljhsu" path="res://Components/follow_player_component.tscn" id="4_pv8pg"]
+[ext_resource type="PackedScene" uid="uid://ock0s4rxc6eq" path="res://Components/hitbox_component.tscn" id="6_k8r4j"]
+[ext_resource type="PackedScene" uid="uid://boeqr8qm5mlx3" path="res://Components/health_component.tscn" id="7_vpvn3"]
+[ext_resource type="PackedScene" uid="uid://cppeu52scvqwg" path="res://Components/enemy_component.tscn" id="8_rv3r6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1wgd8"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gubxl"]
+radius = 65.66
+
+[node name="Narwhal" type="RigidBody2D"]
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_g258r")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_fp2g8")
+
+[node name="BlockBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("CircleShape2D_1wgd8")
+
+[node name="AutoShootComponent" parent="." instance=ExtResource("4_o0ebm")]
+bulletscene = ExtResource("2_vahy0")
+projectile_lifetime = 4.0
+damage_amount = 2.0
+damage_crit_chance = 0.5
+
+[node name="FollowPlayerComponent" parent="." instance=ExtResource("4_pv8pg")]
+follow_force = 150.0
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_comp") instance=ExtResource("6_k8r4j")]
+collision_layer = 4
+health_comp = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(-0.79, 11.21)
+shape = SubResource("CircleShape2D_gubxl")
+
+[node name="HealthComponent" parent="." instance=ExtResource("7_vpvn3")]
+delete_on_death = true
+
+[node name="EnemyComponent" parent="." instance=ExtResource("8_rv3r6")]

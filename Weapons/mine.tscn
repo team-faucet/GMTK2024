@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6lgso0ou8ywn"]
+
+[ext_resource type="Script" path="res://Scripts/mine.gd" id="1_5c2th"]
+[ext_resource type="Texture2D" uid="uid://vudvqi05jiws" path="res://assets/animalsheads/chick.png" id="1_hjkyo"]
+[ext_resource type="PackedScene" uid="uid://b2x1vm36qfeyn" path="res://Components/damage_component.tscn" id="2_2ha2g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6sdjp"]
+radius = 64.0
+
+[node name="Mine" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_5c2th")
+
+[node name="Chick" type="Sprite2D" parent="."]
+texture = ExtResource("1_hjkyo")
+
+[node name="DamageComponent" parent="." instance=ExtResource("2_2ha2g")]
+collision_mask = 4
+damage = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageComponent"]
+shape = SubResource("CircleShape2D_6sdjp")
+
+[connection signal="hit" from="DamageComponent" to="." method="_on_damage_component_hit"]
