@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxmv5tq3abdm2"]
+[gd_scene load_steps=12 format=3 uid="uid://cxmv5tq3abdm2"]
 
 [ext_resource type="Script" path="res://Scripts/narwhal.gd" id="1_g258r"]
 [ext_resource type="Texture2D" uid="uid://dghdvre1kfmnx" path="res://assets/animalsheads/narwhal.png" id="2_fp2g8"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://boeqr8qm5mlx3" path="res://Components/health_component.tscn" id="7_vpvn3"]
 [ext_resource type="PackedScene" uid="uid://cppeu52scvqwg" path="res://Components/enemy_component.tscn" id="8_rv3r6"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iwjyo"]
+friction = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_1wgd8"]
 radius = 50.0
 
@@ -16,6 +19,7 @@ radius = 50.0
 radius = 65.66
 
 [node name="Narwhal" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_iwjyo")
 linear_damp = 1.0
 angular_damp = 1.0
 script = ExtResource("1_g258r")

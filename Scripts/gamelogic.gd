@@ -5,23 +5,29 @@ extends Node
 @export_group("Enemy Spawning")
 @export var base_spawn_rate : float = 0.5
 @export var spawn_rate_increase : float = 0.1
+@export var enemy_count_max : int = 100
 @export var enemy_scenes : Array[PackedScene]
 @export var spawn_distance_to_screen : int = 40
 
 
 var timer:Timer
 @onready var current_spawn_rate : float = base_spawn_rate
+var enemy_count_current : int = 0
 
 func _ready():
 	timer = Timer.new()
 	add_child(timer)
-	timer.timeout.connect(spawn_enemy)
+	timer.timeout.connect(try_spawn_enemy)
 	timer.start(1/current_spawn_rate)
+	StatTracker.enemy_killed.connect(func(): enemy_count_current -= 1)
 
 func _process(delta):
 	current_spawn_rate += spawn_rate_increase * delta
 
-func spawn_enemy():
+func try_spawn_enemy():
+	if enemy_count_current >= enemy_count_max:
+		return
+	enemy_count_current += 1
 	var enemy_scene:PackedScene = enemy_scenes[0]
 	if randf() < 0.25:
 		enemy_scene = enemy_scenes[1]

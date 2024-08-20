@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpwxsgg7pjtyq"]
+[gd_scene load_steps=13 format=3 uid="uid://bpwxsgg7pjtyq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_06hp7"]
 [ext_resource type="Texture2D" uid="uid://dg4hnnnqpuxts" path="res://assets/animalsheads/chicken.png" id="2_3uapd"]
@@ -53,7 +53,6 @@ health_comp = NodePath("../HealthComponent")
 shape = SubResource("CircleShape2D_q36i1")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_ongt8")]
-health = 1000.0
 
 [node name="AbilityComb" parent="." instance=ExtResource("6_ngny2")]
 ability_scene = ExtResource("2_qvwq8")
@@ -68,3 +67,5 @@ action_num = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectingComponent"]
 shape = SubResource("CircleShape2D_6vmdh")
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
