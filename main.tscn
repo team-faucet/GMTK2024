@@ -5,8 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/gamelogic.gd" id="3_8xds2"]
 [ext_resource type="PackedScene" uid="uid://btq50rc85pr5g" path="res://Entities/Enemies/bear.tscn" id="4_iwx7t"]
 [ext_resource type="PackedScene" uid="uid://cssbwlouopx56" path="res://UI/hud.tscn" id="5_xefw1"]
-[ext_resource type="PackedScene" uid="uid://cwewglf2dgij" path="res://UI/kill_count_label.tscn" id="5_i63ss"]
-[ext_resource type="PackedScene" uid="uid://b1d7muwnj2yxk" path="res://background.tscn" id="6_ndo83"]
+[ext_resource type="PackedScene" path="res://background.tscn" id="6_ndo83"]
 
 [node name="Main" type="Node2D"]
 
@@ -21,10 +20,6 @@ enemy_scenes = Array[PackedScene]([ExtResource("4_iwx7t"), ExtResource("2_g56pr"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("5_xefw1")]
-anchors_preset = 15
-anchor_bottom = 1.0
-grow_vertical = 2
-[node name="KillCountLabel" parent="CanvasLayer" instance=ExtResource("5_i63ss")]
 
 [node name="Background" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_ndo83")]
 player = NodePath("../Player")

@@ -2,6 +2,7 @@ extends Node
 
 signal enemy_killed
 signal gained_xp
+signal lvled_up
 
 var enemies_killed : int = 0
 
@@ -18,10 +19,11 @@ func kill_enemy():
 func gain_xp(xp_in : int) -> void:
 	xp_curr += xp_in
 	total_xp += xp_in
-	if (xp_curr > xp_next):
+	if (xp_curr >= xp_next):
 		lvl += 1
 		xp_curr = 0
 		xp_next = get_next_xp()
+		lvled_up.emit()
 	gained_xp.emit()
 
 
