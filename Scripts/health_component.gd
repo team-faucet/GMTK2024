@@ -20,7 +20,6 @@ func take_damage(damage_info : DamageInfo) -> float:
 	health -= amount
 	damage_taken.emit(damage_dealt, is_crit)
 	
-	
 	if health <= 0:
 		_die()
 	
