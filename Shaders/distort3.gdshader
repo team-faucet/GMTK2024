@@ -9,7 +9,7 @@ uniform float effect = 1.0;
 uniform float effect_scale = 1.0;
 uniform float scale = 1.0;
 
-uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, repeat_disable, filter_nearest;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, repeat_disable, filter_linear;
 
 vec2 distort(vec2 p) {
 	float d = length(p);
