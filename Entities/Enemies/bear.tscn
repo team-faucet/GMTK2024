@@ -19,6 +19,7 @@ radius = 50.0
 radius = 64.0
 
 [node name="Bear" type="RigidBody2D"]
+z_index = 1
 physics_material_override = SubResource("PhysicsMaterial_18wwp")
 linear_damp = 1.0
 angular_damp = 1.0
