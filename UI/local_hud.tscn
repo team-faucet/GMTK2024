@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://i2wjdy04qc13"]
+
+[ext_resource type="Texture2D" uid="uid://n7kjabudg0jx" path="res://assets/HealthBarUnder.png" id="1_4wkse"]
+[ext_resource type="Texture2D" uid="uid://bpfwcha4lvd82" path="res://assets/HealthBarOver.png" id="2_81lp2"]
+[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="3_kcwn1"]
+
+[node name="LocalHud" type="Node2D"]
+z_index = 1
+
+[node name="LocalBars" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -109.0
+offset_right = 90.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HealthBar" type="TextureProgressBar" parent="LocalBars"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+nine_patch_stretch = true
+texture_under = ExtResource("1_4wkse")
+texture_progress = ExtResource("2_81lp2")
+script = ExtResource("3_kcwn1")

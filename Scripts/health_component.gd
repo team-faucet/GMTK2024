@@ -1,9 +1,11 @@
 class_name HealthComponent extends Node2D
 
+signal health_changed
 signal damage_taken(amount : float, is_crit : bool)
 signal died
 
 @export var health : float = 100
+
 var _alive:bool = true
 
 @export var show_damage_number : bool = true
@@ -19,6 +21,7 @@ func take_damage(damage_info : DamageInfo) -> float:
 	var damage_dealt = min(health, amount)
 	health -= amount
 	damage_taken.emit(damage_dealt, is_crit)
+	health_changed.emit()
 	
 	if health <= 0:
 		_die()
