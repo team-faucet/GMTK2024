@@ -39,6 +39,7 @@ zoom = Vector2(0.5, 0.5)
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+visible = false
 material = SubResource("ShaderMaterial_iqd5b")
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,3 +64,5 @@ position = Vector2(0, -18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectingComponent"]
 shape = SubResource("CircleShape2D_6vmdh")
+
+[connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]

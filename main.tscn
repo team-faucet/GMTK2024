@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgxvnovy4lvo6"]
+[gd_scene load_steps=8 format=3 uid="uid://bgxvnovy4lvo6"]
 
 [ext_resource type="PackedScene" uid="uid://bpwxsgg7pjtyq" path="res://Entities/player.tscn" id="1_yeh4v"]
 [ext_resource type="PackedScene" uid="uid://cxmv5tq3abdm2" path="res://Entities/Enemies/narwhal.tscn" id="2_g56pr"]
@@ -6,10 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://btq50rc85pr5g" path="res://Entities/Enemies/bear.tscn" id="4_iwx7t"]
 [ext_resource type="PackedScene" uid="uid://cssbwlouopx56" path="res://UI/hud.tscn" id="5_xefw1"]
 [ext_resource type="PackedScene" path="res://background.tscn" id="6_ndo83"]
+[ext_resource type="PackedScene" uid="uid://i2wjdy04qc13" path="res://UI/local_hud.tscn" id="7_r63gx"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_yeh4v")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../LocalHud")
+update_rotation = false
 
 [node name="Gamelogic" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_8xds2")
@@ -24,3 +29,5 @@ enemy_scenes = Array[PackedScene]([ExtResource("4_iwx7t"), ExtResource("2_g56pr"
 [node name="Background" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_ndo83")]
 player = NodePath("../Player")
 texture_scale = 2.0
+
+[node name="LocalHud" parent="." instance=ExtResource("7_r63gx")]

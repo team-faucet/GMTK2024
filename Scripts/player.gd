@@ -1,11 +1,14 @@
 class_name Player extends Node2D
 
-
 @export var speed = 400
 
 @export var shot_scene : PackedScene
 @export var shot_position : Node2D
 @export var mine_scene : PackedScene
+
+func _ready() -> void:
+	StatTracker.max_health = $HealthComponent.health
+	StatTracker.health = $HealthComponent.health
 
 func _process(delta):
 	var input := Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
@@ -27,3 +30,7 @@ func action2():
 	mine.global_position = global_position
 	get_tree().current_scene.call_deferred("add_child", mine)
 	
+
+
+func _on_health_component_health_changed() -> void:
+	StatTracker.health = $HealthComponent.health
