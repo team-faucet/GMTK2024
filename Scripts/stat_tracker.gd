@@ -1,13 +1,15 @@
 extends Node
 
 signal enemy_killed
+signal gained_xp
 
 var enemies_killed : int = 0
+var xp : int = 0
 
-func _ready():
-	enemy_killed.connect(_on_enemy_killed)
-
-
-func _on_enemy_killed():
+func kill_enemy():
 	enemies_killed += 1
-	
+	enemy_killed.emit()
+
+func gain_xp(xp_in : int) -> void:
+	xp += xp_in
+	gained_xp.emit()
