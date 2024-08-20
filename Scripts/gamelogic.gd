@@ -3,27 +3,33 @@ extends Node
 @export var player : Player
 
 @export_group("Enemy Spawning")
-@export var time_to_spawn : float = 1
+@export var base_spawn_rate : float = 0.5
+@export var spawn_rate_increase : float = 0.1
 @export var enemy_scenes : Array[PackedScene]
 @export var spawn_distance_to_screen : int = 40
 
 
 var timer:Timer
+@onready var current_spawn_rate : float = base_spawn_rate
 
 func _ready():
 	timer = Timer.new()
 	add_child(timer)
 	timer.timeout.connect(spawn_enemy)
-	timer.start(time_to_spawn)
+	timer.start(1/current_spawn_rate)
 
+func _process(delta):
+	current_spawn_rate += spawn_rate_increase * delta
 
 func spawn_enemy():
-	var enemy_scene:PackedScene = enemy_scenes[randi_range(0,len(enemy_scenes)-1)]
+	var enemy_scene:PackedScene = enemy_scenes[0]
+	if randf() < 0.25:
+		enemy_scene = enemy_scenes[1]
 	var enemy:Enemy = enemy_scene.instantiate()
 	_set_player_field(enemy)
 	enemy.position = _get_random_position()
 	get_tree().root.add_child(enemy)
-	timer.start(time_to_spawn)
+	timer.start(1/current_spawn_rate)
 
 func _set_player_field(enemy : Enemy) -> void:
 	for child in enemy.get_children():

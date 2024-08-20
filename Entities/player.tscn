@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ock0s4rxc6eq" path="res://Components/hitbox_component.tscn" id="3_yt7br"]
 [ext_resource type="PackedScene" uid="uid://boeqr8qm5mlx3" path="res://Components/health_component.tscn" id="4_ongt8"]
 [ext_resource type="Shader" path="res://Shaders/distort3.gdshader" id="5_jw5v7"]
+[ext_resource type="PackedScene" uid="uid://b14hkqi4f0t36" path="res://Weapons/ability_slot.tscn" id="6_ngny2"]
 [ext_resource type="PackedScene" uid="uid://s0cjxdv351v6" path="res://Components/collecting_component.tscn" id="8_fbp1p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iqd5b"]
@@ -26,8 +27,6 @@ radius = 86.209
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_06hp7")
-shot_scene = ExtResource("2_qvwq8")
-mine_scene = ExtResource("2_d7lid")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -8.5)
@@ -57,8 +56,14 @@ shape = SubResource("CircleShape2D_q36i1")
 [node name="HealthComponent" parent="." instance=ExtResource("4_ongt8")]
 health = 1000.0
 
-[node name="CombPosition" type="Node2D" parent="."]
-position = Vector2(0, -18)
+[node name="AbilityComb" parent="." instance=ExtResource("6_ngny2")]
+ability_scene = ExtResource("2_qvwq8")
+set_ability_rotation = true
+cooldown_time = 0.2
+
+[node name="AbilityMine" parent="." instance=ExtResource("6_ngny2")]
+ability_scene = ExtResource("2_d7lid")
+action_num = 2
 
 [node name="CollectingComponent" parent="." instance=ExtResource("8_fbp1p")]
 
