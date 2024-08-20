@@ -16,6 +16,7 @@ radius = 50.0
 radius = 65.66
 
 [node name="Narwhal" type="RigidBody2D"]
+z_index = 1
 linear_damp = 1.0
 angular_damp = 1.0
 script = ExtResource("1_g258r")

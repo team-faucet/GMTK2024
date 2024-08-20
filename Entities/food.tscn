@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy5qd72vydono"]
+
+[ext_resource type="Script" path="res://Scripts/food.gd" id="1_4j3gi"]
+[ext_resource type="Texture2D" uid="uid://div8shtewlqwe" path="res://assets/crab_meat.png" id="2_j085j"]
+[ext_resource type="PackedScene" uid="uid://b2x1vm36qfeyn" path="res://Components/damage_component.tscn" id="3_2l6cu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mrlhg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ed4ly"]
+radius = 20.025
+
+[node name="Food" type="Node2D"]
+script = ExtResource("1_4j3gi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_mrlhg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture_filter = 3
+texture = ExtResource("2_j085j")
+
+[node name="DamageComponent" parent="." instance=ExtResource("3_2l6cu")]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageComponent"]
+shape = SubResource("CircleShape2D_ed4ly")

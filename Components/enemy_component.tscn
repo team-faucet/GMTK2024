@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cppeu52scvqwg"]
+[gd_scene load_steps=4 format=3 uid="uid://cppeu52scvqwg"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_component.gd" id="1_jgt72"]
 [ext_resource type="PackedScene" uid="uid://c5puyue534wmw" path="res://Entities/xp.tscn" id="2_fnrfi"]
+[ext_resource type="PackedScene" uid="uid://cy5qd72vydono" path="res://Entities/food.tscn" id="3_ohyp1"]
 
 [node name="EnemyComponent" type="Node2D"]
 script = ExtResource("1_jgt72")
 xp_scene = ExtResource("2_fnrfi")
+food_scene = ExtResource("3_ohyp1")
