@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpwxsgg7pjtyq"]
+[gd_scene load_steps=10 format=3 uid="uid://bpwxsgg7pjtyq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_06hp7"]
 [ext_resource type="Texture2D" uid="uid://dg4hnnnqpuxts" path="res://assets/animalsheads/chicken.png" id="2_3uapd"]
@@ -6,6 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://b8wnxbwesovtu" path="res://Weapons/chicken_comb.tscn" id="2_qvwq8"]
 [ext_resource type="PackedScene" uid="uid://ock0s4rxc6eq" path="res://Components/hitbox_component.tscn" id="3_yt7br"]
 [ext_resource type="PackedScene" uid="uid://boeqr8qm5mlx3" path="res://Components/health_component.tscn" id="4_ongt8"]
+[ext_resource type="Shader" path="res://Shaders/distort3.gdshader" id="5_jw5v7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iqd5b"]
+shader = ExtResource("5_jw5v7")
+shader_parameter/aspect = 1.0
+shader_parameter/alpha = 1.0
+shader_parameter/crop_color = Vector4(0, 0, 0, 1)
+shader_parameter/effect = 1.0
+shader_parameter/effect_scale = 1.0
+shader_parameter/scale = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q36i1"]
 radius = 61.0082
@@ -20,6 +30,17 @@ position = Vector2(0, -8.5)
 texture = ExtResource("2_3uapd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_iqd5b")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_comp") instance=ExtResource("3_yt7br")]
 collision_layer = 2
