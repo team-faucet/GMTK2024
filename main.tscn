@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgxvnovy4lvo6"]
+[gd_scene load_steps=11 format=3 uid="uid://bgxvnovy4lvo6"]
 
 [ext_resource type="PackedScene" uid="uid://bpwxsgg7pjtyq" path="res://Entities/player.tscn" id="1_yeh4v"]
 [ext_resource type="PackedScene" uid="uid://cxmv5tq3abdm2" path="res://Entities/Enemies/narwhal.tscn" id="2_g56pr"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dieaor56rm48x" path="res://UI/Menu/game_over_screen.tscn" id="7_egqxr"]
 [ext_resource type="PackedScene" uid="uid://i2wjdy04qc13" path="res://UI/local_hud.tscn" id="7_r63gx"]
 [ext_resource type="PackedScene" uid="uid://c07g5nt5q0nmb" path="res://UI/Menu/pause_menu.tscn" id="7_veqkk"]
+[ext_resource type="PackedScene" uid="uid://ccy3mbcbhra8w" path="res://Environment/obstacle_rock.tscn" id="10_2osbf"]
 
 [node name="Main" type="Node2D"]
 
@@ -46,3 +47,9 @@ player = NodePath("../Player")
 texture_scale = 2.0
 
 [node name="LocalHud" parent="." instance=ExtResource("7_r63gx")]
+
+[node name="ObstacleRock" parent="." instance=ExtResource("10_2osbf")]
+position = Vector2(-456, 361)
+
+[node name="ObstacleRock2" parent="." instance=ExtResource("10_2osbf")]
+position = Vector2(-688, -550)

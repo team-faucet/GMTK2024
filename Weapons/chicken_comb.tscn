@@ -16,7 +16,7 @@ texture = ExtResource("1_6flsy")
 offset = Vector2(0, -31.5)
 
 [node name="DamageComponent" parent="." instance=ExtResource("2_3gcg7")]
-collision_mask = 4
+collision_mask = 12
 damage = 15.0
 crit_chance = 0.5
 
@@ -26,3 +26,5 @@ shape = SubResource("RectangleShape2D_2nhso")
 
 [node name="ProjectileComponent" parent="." instance=ExtResource("4_y3gc3")]
 speed = 1000.0
+
+[connection signal="body_entered" from="DamageComponent" to="." method="_on_damage_component_body_entered"]
