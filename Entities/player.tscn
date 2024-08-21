@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bpwxsgg7pjtyq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_06hp7"]
-[ext_resource type="Texture2D" uid="uid://dg4hnnnqpuxts" path="res://assets/animalsheads/chicken.png" id="2_3uapd"]
+[ext_resource type="Texture2D" uid="uid://dg4hnnnqpuxts" path="res://assets/Sprites/animalsheads/chicken.png" id="2_3uapd"]
 [ext_resource type="PackedScene" uid="uid://c6lgso0ou8ywn" path="res://Weapons/mine.tscn" id="2_d7lid"]
 [ext_resource type="PackedScene" uid="uid://b8wnxbwesovtu" path="res://Weapons/chicken_comb.tscn" id="2_qvwq8"]
 [ext_resource type="PackedScene" uid="uid://ock0s4rxc6eq" path="res://Components/hitbox_component.tscn" id="3_yt7br"]
@@ -54,6 +54,7 @@ health_comp = NodePath("../HealthComponent")
 shape = SubResource("CircleShape2D_q36i1")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_ongt8")]
+health = 5.0
 
 [node name="AbilityComb" parent="." instance=ExtResource("6_ngny2")]
 ability_scene = ExtResource("2_qvwq8")

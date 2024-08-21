@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cxmv5tq3abdm2"]
 
 [ext_resource type="Script" path="res://Scripts/narwhal.gd" id="1_g258r"]
-[ext_resource type="Texture2D" uid="uid://dghdvre1kfmnx" path="res://assets/animalsheads/narwhal.png" id="2_fp2g8"]
+[ext_resource type="Texture2D" uid="uid://dghdvre1kfmnx" path="res://assets/Sprites/animalsheads/narwhal.png" id="2_fp2g8"]
 [ext_resource type="PackedScene" uid="uid://dm8kjvbogy4dn" path="res://Weapons/narwhalbullet.tscn" id="2_vahy0"]
 [ext_resource type="PackedScene" uid="uid://cetkclwtedonf" path="res://Components/auto_shoot_component.tscn" id="4_o0ebm"]
 [ext_resource type="PackedScene" uid="uid://bukm2rdeljhsu" path="res://Components/follow_player_component.tscn" id="4_pv8pg"]

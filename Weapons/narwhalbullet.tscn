@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dm8kjvbogy4dn"]
 
-[ext_resource type="Texture2D" uid="uid://db1cdpbgfduwu" path="res://assets/narwhalhorn.png" id="2_bfqjh"]
+[ext_resource type="Texture2D" uid="uid://db1cdpbgfduwu" path="res://assets/Sprites/narwhalhorn.png" id="2_bfqjh"]
 [ext_resource type="PackedScene" uid="uid://b2x1vm36qfeyn" path="res://Components/damage_component.tscn" id="3_22tty"]
 [ext_resource type="PackedScene" uid="uid://bwkw5vsymyrl0" path="res://Components/projectile_component.tscn" id="3_v5ten"]
 
