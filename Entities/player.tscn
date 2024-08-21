@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ock0s4rxc6eq" path="res://Components/hitbox_component.tscn" id="3_yt7br"]
 [ext_resource type="PackedScene" uid="uid://boeqr8qm5mlx3" path="res://Components/health_component.tscn" id="4_ongt8"]
 [ext_resource type="Shader" path="res://Shaders/distort3.gdshader" id="5_jw5v7"]
-[ext_resource type="PackedScene" path="res://Weapons/ability_slot.tscn" id="6_ngny2"]
+[ext_resource type="PackedScene" uid="uid://b14hkqi4f0t36" path="res://Weapons/ability_slot.tscn" id="6_ngny2"]
 [ext_resource type="PackedScene" uid="uid://s0cjxdv351v6" path="res://Components/collecting_component.tscn" id="8_fbp1p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iqd5b"]
@@ -15,7 +15,7 @@ shader = ExtResource("5_jw5v7")
 shader_parameter/aspect = 1.0
 shader_parameter/alpha = 1.0
 shader_parameter/crop_color = Vector4(0, 0, 0, 1)
-shader_parameter/effect = -1.0
+shader_parameter/effect = 1.0
 shader_parameter/effect_scale = 1.0
 shader_parameter/scale = 1.0
 
@@ -39,7 +39,6 @@ zoom = Vector2(0.5, 0.5)
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
-visible = false
 material = SubResource("ShaderMaterial_iqd5b")
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,4 +69,5 @@ action_num = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectingComponent"]
 shape = SubResource("CircleShape2D_6vmdh")
 
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]
