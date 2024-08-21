@@ -18,8 +18,8 @@ radius = 50.0
 radius = 64.0
 
 [node name="Bear" type="RigidBody2D"]
-physics_material_override = SubResource("PhysicsMaterial_2n204")
 z_index = 1
+physics_material_override = SubResource("PhysicsMaterial_2n204")
 linear_damp = 1.0
 angular_damp = 1.0
 script = ExtResource("1_h46th")
