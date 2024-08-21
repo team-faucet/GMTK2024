@@ -5,5 +5,4 @@ class_name Food extends Node2D
 
 func _ready():
 	$DamageComponent.hit.connect(func(): queue_free())
-	$DamageComponent.damage = -randf_range(min_regen, max_regen)
-	$DamageComponent.crit_chance = 0.
+	$DamageComponent.damage_info.basedamage = -randf_range(min_regen, max_regen)

@@ -15,15 +15,15 @@ shader = ExtResource("5_jw5v7")
 shader_parameter/aspect = 1.0
 shader_parameter/alpha = 1.0
 shader_parameter/crop_color = Vector4(0, 0, 0, 1)
-shader_parameter/effect = 1.0
+shader_parameter/effect = -1.0
 shader_parameter/effect_scale = 1.0
 shader_parameter/scale = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q36i1"]
-radius = 61.0082
+radius = 62.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vmdh"]
-radius = 86.209
+radius = 85.0
 
 [node name="Player" type="Node2D"]
 z_index = 2
@@ -55,7 +55,6 @@ health_comp = NodePath("../HealthComponent")
 shape = SubResource("CircleShape2D_q36i1")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_ongt8")]
-health = 1000.0
 
 [node name="AbilityComb" parent="." instance=ExtResource("6_ngny2")]
 ability_scene = ExtResource("2_qvwq8")

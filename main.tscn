@@ -16,12 +16,11 @@
 remote_path = NodePath("../../LocalHud")
 update_rotation = false
 
-[node name="Gamelogic" type="Node" parent="." node_paths=PackedStringArray("player")]
+[node name="Gamelogic" type="Node" parent="."]
+
 [node name="EnemySpawning" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_8xds2")
 player = NodePath("../Player")
-base_spawn_rate = 2.0
-spawn_rate_increase = 0.05
 enemy_scenes = Array[PackedScene]([ExtResource("4_iwx7t"), ExtResource("2_g56pr")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
