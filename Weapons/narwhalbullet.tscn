@@ -7,8 +7,6 @@
 [sub_resource type="GDScript" id="GDScript_p1ovi"]
 script/source = "extends Node2D
 
-
-
 func _on_damage_component_hit():
 	queue_free()
 "
@@ -21,7 +19,7 @@ position = Vector2(0, -39)
 texture = ExtResource("2_bfqjh")
 
 [node name="DamageComponent" parent="." instance=ExtResource("3_22tty")]
-collision_mask = 2
+collision_mask = 10
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DamageComponent"]
 polygon = PackedVector2Array(9, 0, 0, -78, -9, 0)
