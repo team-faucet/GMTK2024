@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://btq50rc85pr5g"]
 
 [ext_resource type="Script" path="res://Scripts/bear.gd" id="1_h46th"]
-[ext_resource type="Texture2D" uid="uid://ceudrhn3ugyur" path="res://assets/animalsheads/bear.png" id="2_empse"]
+[ext_resource type="Texture2D" uid="uid://ceudrhn3ugyur" path="res://assets/Sprites/animalsheads/bear.png" id="2_empse"]
 [ext_resource type="PackedScene" uid="uid://bukm2rdeljhsu" path="res://Components/follow_player_component.tscn" id="3_47nvv"]
 [ext_resource type="PackedScene" uid="uid://b2x1vm36qfeyn" path="res://Components/damage_component.tscn" id="4_iyo2b"]
 [ext_resource type="PackedScene" uid="uid://ock0s4rxc6eq" path="res://Components/hitbox_component.tscn" id="5_geym5"]
@@ -18,8 +18,8 @@ radius = 50.0
 radius = 64.0
 
 [node name="Bear" type="RigidBody2D"]
-physics_material_override = SubResource("PhysicsMaterial_2n204")
 z_index = 1
+physics_material_override = SubResource("PhysicsMaterial_2n204")
 linear_damp = 1.0
 angular_damp = 1.0
 script = ExtResource("1_h46th")

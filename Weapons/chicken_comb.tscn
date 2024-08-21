@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8wnxbwesovtu"]
 
-[ext_resource type="Texture2D" uid="uid://dxa2k1d4y563n" path="res://assets/chickencomb.png" id="1_6flsy"]
+[ext_resource type="Texture2D" uid="uid://dxa2k1d4y563n" path="res://assets/Sprites/chickencomb.png" id="1_6flsy"]
 [ext_resource type="Script" path="res://Scripts/chicken_comb.gd" id="1_gx7y8"]
 [ext_resource type="PackedScene" uid="uid://b2x1vm36qfeyn" path="res://Components/damage_component.tscn" id="2_3gcg7"]
 [ext_resource type="PackedScene" uid="uid://bwkw5vsymyrl0" path="res://Components/projectile_component.tscn" id="4_y3gc3"]
