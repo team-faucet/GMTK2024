@@ -34,7 +34,7 @@ func try_spawn_enemy():
 	var enemy:Enemy = enemy_scene.instantiate()
 	_set_player_field(enemy)
 	enemy.position = _get_random_position()
-	get_tree().root.get_node('Main').add_child(enemy)
+	get_tree().current_scene.add_child(enemy)
 	timer.start(1/current_spawn_rate)
 
 func _set_player_field(enemy : Enemy) -> void:
