@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpwxsgg7pjtyq"]
+[gd_scene load_steps=14 format=3 uid="uid://bpwxsgg7pjtyq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_06hp7"]
-[ext_resource type="Texture2D" uid="uid://dg4hnnnqpuxts" path="res://assets/animalsheads/chicken.png" id="2_3uapd"]
+[ext_resource type="Texture2D" uid="uid://dg4hnnnqpuxts" path="res://assets/Sprites/animalsheads/chicken.png" id="2_3uapd"]
 [ext_resource type="PackedScene" uid="uid://c6lgso0ou8ywn" path="res://Weapons/mine.tscn" id="2_d7lid"]
 [ext_resource type="PackedScene" uid="uid://b8wnxbwesovtu" path="res://Weapons/chicken_comb.tscn" id="2_qvwq8"]
 [ext_resource type="PackedScene" uid="uid://ock0s4rxc6eq" path="res://Components/hitbox_component.tscn" id="3_yt7br"]
@@ -15,7 +15,7 @@ shader = ExtResource("5_jw5v7")
 shader_parameter/aspect = 1.0
 shader_parameter/alpha = 1.0
 shader_parameter/crop_color = Vector4(0, 0, 0, 1)
-shader_parameter/effect = -1.0
+shader_parameter/effect = 1.0
 shader_parameter/effect_scale = 1.0
 shader_parameter/scale = 1.0
 
@@ -25,8 +25,13 @@ radius = 62.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vmdh"]
 radius = 85.0
 
-[node name="Player" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bls8i"]
+radius = 64.0
+
+[node name="Player" type="CharacterBody2D"]
 z_index = 2
+collision_layer = 0
+collision_mask = 8
 script = ExtResource("1_06hp7")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -48,6 +53,7 @@ grow_vertical = 2
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_comp") instance=ExtResource("3_yt7br")]
 collision_layer = 2
+collision_mask = 8
 health_comp = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
@@ -68,6 +74,9 @@ action_num = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectingComponent"]
 shape = SubResource("CircleShape2D_6vmdh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bls8i")
 
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]

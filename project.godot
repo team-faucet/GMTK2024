@@ -24,6 +24,11 @@ SceneManager="*res://Scripts/scene_manager.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[gui]
+
+theme/custom="res://assets/Styles/default_theme.tres"
+theme/custom_font="res://assets/Styles/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf"
+
 [input]
 
 ui_left={
@@ -79,6 +84,7 @@ reset={
 2d_physics/layer_1="Collectibles"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Obstacles"
 
 [physics]
 

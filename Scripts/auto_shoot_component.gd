@@ -38,7 +38,7 @@ func _shoot():
 		bullet.rotation = global_rotation
 		_set_projectile_attributes(bullet)
 		_set_damage_attributes(bullet)
-		get_tree().root.add_child(bullet)
+		get_tree().current_scene.add_child(bullet)
 	
 	_set_cooldown()
 

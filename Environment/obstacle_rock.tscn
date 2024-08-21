@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://ccy3mbcbhra8w"]
+
+[ext_resource type="Texture2D" uid="uid://cxai2j8dv2fmf" path="res://assets/Sprites/Rocks.png" id="1_6ye8o"]
+[ext_resource type="Script" path="res://Scripts/hitbox_component.gd" id="2_mpvrt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_12nal"]
+radius = 16.0
+height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6ctn"]
+atlas = ExtResource("1_6ye8o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2ure"]
+atlas = ExtResource("1_6ye8o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0t3i"]
+atlas = ExtResource("1_6ye8o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5b487"]
+atlas = ExtResource("1_6ye8o")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqomr"]
+atlas = ExtResource("1_6ye8o")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1etu3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6ctn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2ure")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0t3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5b487")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqomr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ObstacleRock" type="StaticBody2D"]
+scale = Vector2(4, 4)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_12nal")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+sprite_frames = SubResource("SpriteFrames_1etu3")
+frame = 3
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("2_mpvrt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_12nal")

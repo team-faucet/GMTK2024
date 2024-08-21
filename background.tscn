@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1d7muwnj2yxk"]
 
 [ext_resource type="Script" path="res://Scripts/background.gd" id="1_4nb0k"]
-[ext_resource type="Texture2D" uid="uid://cm4d6g04j5eil" path="res://assets/background_tile.png" id="2_bis1l"]
+[ext_resource type="Texture2D" uid="uid://cm4d6g04j5eil" path="res://assets/Sprites/background_tile.png" id="2_bis1l"]
 
 [node name="Background" type="Node2D"]
 z_index = -1
