@@ -8,9 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://boeqr8qm5mlx3" path="res://Components/health_component.tscn" id="6_8o85x"]
 [ext_resource type="PackedScene" uid="uid://cppeu52scvqwg" path="res://Components/enemy_component.tscn" id="7_0hs5k"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_18wwp"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2n204"]
 friction = 0.0
-bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3v38"]
 radius = 50.0
@@ -19,8 +18,8 @@ radius = 50.0
 radius = 64.0
 
 [node name="Bear" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_2n204")
 z_index = 1
-physics_material_override = SubResource("PhysicsMaterial_18wwp")
 linear_damp = 1.0
 angular_damp = 1.0
 script = ExtResource("1_h46th")

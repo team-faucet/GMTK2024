@@ -36,4 +36,4 @@ func gain_xp(xp_in : int) -> void:
 
 
 func get_next_xp() -> int:
-	return 10 * sqrt(lvl)
+	return int(10 * sqrt(lvl))
