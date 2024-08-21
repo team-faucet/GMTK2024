@@ -20,12 +20,13 @@ shader_parameter/effect_scale = 1.0
 shader_parameter/scale = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q36i1"]
-radius = 61.0082
+radius = 62.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vmdh"]
-radius = 86.209
+radius = 85.0
 
 [node name="Player" type="Node2D"]
+z_index = 2
 script = ExtResource("1_06hp7")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -69,3 +70,4 @@ action_num = 2
 shape = SubResource("CircleShape2D_6vmdh")
 
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]

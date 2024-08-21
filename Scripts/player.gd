@@ -1,9 +1,11 @@
 class_name Player extends Node2D
 
-
 @export var speed = 400
 
 
+func _ready() -> void:
+	StatTracker.max_health = $HealthComponent.health
+	StatTracker.health = $HealthComponent.health
 
 func _process(delta):
 	var input := Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
@@ -14,3 +16,6 @@ func _process(delta):
 func _on_health_component_died():
 	SceneManager.game_ended.emit()
 	process_mode = PROCESS_MODE_DISABLED
+
+func _on_health_component_health_changed() -> void:
+	StatTracker.health = $HealthComponent.health

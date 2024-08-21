@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwewglf2dgij"]
+
+[ext_resource type="Script" path="res://Scripts/kill_count_label.gd" id="1_owb0j"]
+[ext_resource type="FontFile" uid="uid://dae28y0bt7yqs" path="res://assets/Pixelify_Sans/static/PixelifySans-SemiBold.ttf" id="1_rn7p3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2v3tk"]
+font = ExtResource("1_rn7p3")
+font_size = 40
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LevelLabel" type="Label"]
+texture_filter = 3
+offset_right = 40.0
+offset_bottom = 23.0
+text = "LVL 1"
+label_settings = SubResource("LabelSettings_2v3tk")
+script = ExtResource("1_owb0j")

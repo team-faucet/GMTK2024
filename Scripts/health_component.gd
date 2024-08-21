@@ -1,9 +1,11 @@
 class_name HealthComponent extends Node2D
 
+signal health_changed
 signal damage_taken(amount : float, is_crit : bool)
 signal died
 
 @export var health : float = 100
+
 var _alive:bool = true
 
 @export var show_damage_number : bool = true
@@ -19,6 +21,7 @@ func take_damage(damage_info : DamageInfo) -> float:
 	var damage_dealt = min(health, amount)
 	health -= amount
 	damage_taken.emit(damage_dealt, is_crit)
+	health_changed.emit()
 	
 	if health <= 0:
 		_die()
@@ -48,7 +51,7 @@ func _show_damage_number(damage : float, is_crit : bool):
 	
 	var label := Label.new()
 	label.global_position = global_position
-	label.text = str(damage_int)
+	label.text = str(abs(damage_int))
 	label.z_index = 5
 	label.label_settings = LabelSettings.new()
 	
@@ -57,8 +60,12 @@ func _show_damage_number(damage : float, is_crit : bool):
 	if is_crit:
 		color = "FF2020"
 		font_size = int(font_size * 1.5)
+	elif damage < 0.:
+		color = "#0F0"
+		label.text = "+" + label.text
 	
 	label.label_settings.font_color = color
+	label.label_settings.font = load('res://assets/Pixelify_Sans/static/PixelifySans-Medium.ttf')
 	label.label_settings.font_size = font_size
 	label.label_settings.outline_color = "#000"
 	label.label_settings.outline_size = 20

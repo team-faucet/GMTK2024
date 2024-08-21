@@ -4,7 +4,7 @@ extends Label
 func _ready():
 	StatTracker.enemy_killed.connect(_on_stat_update)
 	StatTracker.gained_xp.connect(_on_stat_update)
-	text = "Kills: 0\nXP: 0\nLvl: 0"
+	text = "LVL 1"
 
 func _on_stat_update():
-	text = "Kills: " + str(StatTracker.enemies_killed) + "\nXP: " + str(StatTracker.xp_curr) + "/" + str(StatTracker.xp_next) + "\nLvl: " + str(StatTracker.lvl)
+	text = "LVL " + str(StatTracker.lvl)
