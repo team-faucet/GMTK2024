@@ -4,7 +4,8 @@ signal health_changed
 signal damage_taken(amount : float, is_crit : bool)
 signal died
 
-@export var health : float = 100
+@export var max_health : float = 100
+@onready var health : float = max_health
 
 var _alive:bool = true
 
@@ -28,6 +29,19 @@ func take_damage(damage_info : DamageInfo) -> float:
 	
 	_show_damage_number(damage_dealt, is_crit)
 	return damage_dealt
+
+func heal(heal_info : DamageInfo) -> float:
+	var hit_info = _calculate_actual_damage(heal_info)
+	var amount : float = hit_info[0]
+	var is_crit : bool = hit_info[1]
+	if !_alive:
+		return 0
+	var amount_healed = min(max_health-health, amount)
+	health += amount_healed
+	health_changed.emit()
+	
+	_show_damage_number(-amount_healed, is_crit)
+	return amount_healed
 
 func _die():
 	if delete_on_death:

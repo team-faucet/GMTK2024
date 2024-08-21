@@ -19,8 +19,8 @@ radius = 50.0
 radius = 65.66
 
 [node name="Narwhal" type="RigidBody2D"]
-physics_material_override = SubResource("PhysicsMaterial_iwjyo")
 z_index = 1
+physics_material_override = SubResource("PhysicsMaterial_iwjyo")
 linear_damp = 1.0
 angular_damp = 1.0
 script = ExtResource("1_g258r")
@@ -49,6 +49,7 @@ position = Vector2(-0.79, 11.21)
 shape = SubResource("CircleShape2D_gubxl")
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_vpvn3")]
+max_health = 25.0
 delete_on_death = true
 
 [node name="EnemyComponent" parent="." instance=ExtResource("8_rv3r6")]

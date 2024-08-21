@@ -12,5 +12,9 @@ func _ready():
 
 func hit(damage_info : DamageInfo) -> void:
 	if health_comp:
-		health_comp.take_damage(damage_info)
+		if damage_info.basedamage >= 0:
+			health_comp.take_damage(damage_info)
+		else:
+			damage_info.basedamage = abs(damage_info.basedamage)
+			health_comp.heal(damage_info)
 	is_hit.emit()

@@ -54,7 +54,6 @@ health_comp = NodePath("../HealthComponent")
 shape = SubResource("CircleShape2D_q36i1")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_ongt8")]
-health = 5.0
 
 [node name="AbilityComb" parent="." instance=ExtResource("6_ngny2")]
 ability_scene = ExtResource("2_qvwq8")

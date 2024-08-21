@@ -16,8 +16,8 @@ var xp_next : int = get_next_xp()
 var max_health: float
 var health: float
 
-func change_health(increment : float) -> void:
-	health += increment
+func set_health(health_new : float) -> void:
+	health = health_new
 	health_changed.emit()
 
 func kill_enemy():
