@@ -46,7 +46,8 @@ visible = false
 player = NodePath("../Player")
 texture_scale = 2.0
 
-[node name="LocalHud" parent="." instance=ExtResource("7_r63gx")]
+[node name="LocalHud" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_r63gx")]
+player = NodePath("../Player")
 
 [node name="ObstacleRock" parent="." instance=ExtResource("10_2osbf")]
 position = Vector2(-456, 361)

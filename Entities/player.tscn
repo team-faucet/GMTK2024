@@ -53,6 +53,7 @@ grow_vertical = 2
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_comp") instance=ExtResource("3_yt7br")]
 collision_layer = 2
+collision_mask = 8
 health_comp = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]

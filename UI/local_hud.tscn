@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://i2wjdy04qc13"]
+[gd_scene load_steps=7 format=3 uid="uid://i2wjdy04qc13"]
 
-[ext_resource type="Texture2D" uid="uid://n7kjabudg0jx" path="res://assets/Sprites/HealthBarUnder.png" id="1_4wkse"]
-[ext_resource type="Texture2D" uid="uid://bpfwcha4lvd82" path="res://assets/Sprites/HealthBarOver.png" id="2_81lp2"]
+[ext_resource type="Texture2D" uid="uid://n7kjabudg0jx" path="res://assets/HealthBarUnder.png" id="1_4wkse"]
+[ext_resource type="Script" path="res://Scripts/local_hud.gd" id="1_k4ryn"]
+[ext_resource type="Texture2D" uid="uid://bpfwcha4lvd82" path="res://assets/HealthBarOver.png" id="2_81lp2"]
 [ext_resource type="Script" path="res://Scripts/health_bar.gd" id="3_kcwn1"]
+[ext_resource type="Texture2D" uid="uid://c4its2itfb6kb" path="res://assets/movement_pointer.svg" id="4_wa4rt"]
+[ext_resource type="Script" path="res://Scripts/movment_pointer.gd" id="5_yr3kl"]
 
 [node name="LocalHud" type="Node2D"]
 z_index = 1
+script = ExtResource("1_k4ryn")
 
 [node name="LocalBars" type="Control" parent="."]
 layout_mode = 3
@@ -30,3 +34,10 @@ nine_patch_stretch = true
 texture_under = ExtResource("1_4wkse")
 texture_progress = ExtResource("2_81lp2")
 script = ExtResource("3_kcwn1")
+
+[node name="MovementPointer" type="Sprite2D" parent="."]
+texture_filter = 3
+rotation = -3.14159
+texture = ExtResource("4_wa4rt")
+offset = Vector2(192, 0)
+script = ExtResource("5_yr3kl")

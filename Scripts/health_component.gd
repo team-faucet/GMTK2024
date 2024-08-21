@@ -65,6 +65,7 @@ func _show_damage_number(damage : float, is_crit : bool):
 		label.text = "+" + label.text
 	
 	label.label_settings.font_color = color
+	label.label_settings.font = load('res://assets/Pixelify_Sans/static/PixelifySans-Medium.ttf')
 	label.label_settings.font_size = font_size
 	label.label_settings.outline_color = "#000"
 	label.label_settings.outline_size = 20
