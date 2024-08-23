@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 @export var speed = 400
 
-var move_dir : Vector2 = Vector2.UP
+var move_dir : Vector2 = Vector2.DOWN
 
 func _ready() -> void:
 	StatTracker.max_health = $HealthComponent.health
