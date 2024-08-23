@@ -20,8 +20,8 @@ radius = 65.66
 
 [node name="Narwhal" type="RigidBody2D"]
 z_index = 1
-collision_layer = 0
-collision_mask = 10
+collision_layer = 4
+collision_mask = 14
 physics_material_override = SubResource("PhysicsMaterial_iwjyo")
 linear_damp = 1.0
 angular_damp = 1.0

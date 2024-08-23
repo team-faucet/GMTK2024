@@ -20,7 +20,7 @@ func change_health(increment : float) -> void:
 	health += increment
 	health_changed.emit()
 
-func kill_enemy():
+func kill_enemy() -> void:
 	enemies_killed += 1
 	enemy_killed.emit()
 
