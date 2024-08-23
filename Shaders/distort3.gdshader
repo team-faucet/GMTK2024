@@ -39,7 +39,7 @@ void fragment() {
 	else {
 		COLOR = crop_color;
 	}
-	
+
 	if (uv.x < 0. || uv.y < 0. || uv.x > 1. || uv.y > 1.)
 		COLOR = crop_color;
 }
