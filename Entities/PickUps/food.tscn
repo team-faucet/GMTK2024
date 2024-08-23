@@ -19,7 +19,6 @@ visible = false
 sprite_frames = SubResource("SpriteFrames_mrlhg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 2
 texture_filter = 3
 texture = ExtResource("2_j085j")
 
